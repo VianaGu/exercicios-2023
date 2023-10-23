@@ -31,7 +31,7 @@ class Scrapper {
       'Author 3 Institution', 'Author 4', 'Author 4 Institution', 'Author 5', 'Author 5 Institution', 'Author 6', 
       'Author 6 Institution', 'Author 7', 'Author 7 Institution', 'Author 8', 'Author 8 Institution', 'Author 9', 'Author 9 Institution', 
     ], $style);
-    $writer->addRow($headerRow); 
+    $writer->addRow($headerRow);
     $cells = [];
     try {
       // Iterate over the paper cards.
@@ -51,7 +51,6 @@ class Scrapper {
           elseif ($node_tagname == 'div') {
             $filhoNo = $node->childNodes;
             $count = 1;
-            
             foreach ($filhoNo as $no) {
               /*
                * If the tag name is 'div', 
@@ -116,18 +115,16 @@ class Scrapper {
                   $cells[] = WriterEntityFactory::createCell($instituicao);
                 }
                 $count++;
-              }
-              
+              } 
             }
-            
-          }
-               
+          }   
         } 
         $singleRow = WriterEntityFactory::createRow($cells, $lineStyle);
         $writer->addRow($singleRow);  
       } 
-      echo "Tabela criada com sucesso em $filePath \n" ;
-    }catch(\DOMException $e){
+      echo "Tabela criada com sucesso em $filePath \n";
+    } 
+    catch(\DOMException $e) {
       print_r($e->getMessage());
      }
      $writer->close();

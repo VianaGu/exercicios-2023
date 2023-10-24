@@ -3,7 +3,7 @@
 namespace Chuva\Php\WebScrapping;
 
 use Box\Spout\Writer\Common\Creator\Style\StyleBuilder;
-use Box\Spout\Writer\Common\Creator\WriterEntityFactory;
+use OpenSpout\Writer\Common\Creator\WriterEntityFactory;
 
 /**
  * Does the scrapping of a webpage.
@@ -20,10 +20,10 @@ class Scrapper {
     $filePath = 'exemplo.xlsx';
     $writer = WriterEntityFactory::createXLSXWriter();
     $writer->openToFile($filePath);
-    $style = (new StyleBuilder())
+    $style = (new \OpenSpout\Writer\Common\Creator\Style\StyleBuilder())
       ->setFontBold()
       ->build();
-    $lineStyle = (new StyleBuilder())
+    $lineStyle = (new \OpenSpout\Writer\Common\Creator\Style\StyleBuilder())
       ->setShouldWrapText(TRUE)
       ->build();
     $headerRow = WriterEntityFactory::createRowFromArray(['ID', 'Title', 'Type', 'Author 1', 'Author 1 Institution',	'Author 2', 'Author 2 Institution', 'Author 3', 

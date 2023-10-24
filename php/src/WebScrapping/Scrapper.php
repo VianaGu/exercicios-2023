@@ -2,7 +2,7 @@
 
 namespace Chuva\Php\WebScrapping;
 
-use Box\Spout\Writer\Common\Creator\Style\StyleBuilder;
+use OpenSpout\Writer\Common\Creator\Style\StyleBuilder;
 use OpenSpout\Writer\Common\Creator\WriterEntityFactory;
 
 /**
@@ -20,10 +20,10 @@ class Scrapper {
     $filePath = 'exemplo.xlsx';
     $writer = WriterEntityFactory::createXLSXWriter();
     $writer->openToFile($filePath);
-    $style = (new \OpenSpout\Writer\Common\Creator\Style\StyleBuilder())
+    $style = (new StyleBuilder())
       ->setFontBold()
       ->build();
-    $lineStyle = (new \OpenSpout\Writer\Common\Creator\Style\StyleBuilder())
+    $lineStyle = (new StyleBuilder())
       ->setShouldWrapText(TRUE)
       ->build();
     $headerRow = WriterEntityFactory::createRowFromArray(['ID', 'Title', 'Type', 'Author 1', 'Author 1 Institution',	'Author 2', 'Author 2 Institution', 'Author 3', 
@@ -52,9 +52,9 @@ class Scrapper {
             $count = 1;
             foreach ($filhoNo as $no) {
               /*
-               * If the tag name is 'div', 
+               * If the tag name is 'div',
                * then it is the title of the paper.
-              */
+               */
               if ($no->nodeName == 'div') {
                 if ($no->getAttribute('class') == 'tags mr-sm') {
                   $type = $no->nodeValue;
@@ -125,8 +125,8 @@ class Scrapper {
     }
     catch (\DOMException $e) {
       print_r($e->getMessage());
-      }
-     $writer->close();
+    }
+    $writer->close();
   }
-    
+
 }

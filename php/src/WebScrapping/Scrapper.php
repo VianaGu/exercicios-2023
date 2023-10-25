@@ -67,6 +67,10 @@ class Scrapper {
                 }
 
               }
+              /*
+               * If the tag name is 'span',
+               * then you are the author of the paper.
+               */ 
               elseif ($no->nodeName == 'span') {
                 $instituicao = $no->getAttribute('title');
                 print_r("Instituição: $instituicao \n");

@@ -127,7 +127,6 @@ class Scrapper {
         $singleRow = WriterEntityFactory::createRow($cells, $lineStyle);
         $writer->addRow($singleRow);
       }
-      echo "Tabela criada com sucesso em $filePath \n";
     }
     catch (\DOMException $e) {
       print_r($e->getMessage());

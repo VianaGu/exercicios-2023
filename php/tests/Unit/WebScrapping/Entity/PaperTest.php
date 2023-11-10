@@ -15,7 +15,7 @@ class PaperTest extends TestCase {
    * Tests construct().
    */
   public function testConstruct() {
-    $paper = new Paper('123', 'Paper title', 'Oral presentation', [
+    $paper = new Paper(123, 'Paper title', 'Oral presentation', [
       new Person('Evariste Galois', 'Lycée Louis-le-Grand'),
     ]);
 

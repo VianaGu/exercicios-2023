@@ -132,7 +132,7 @@ class Scrapper {
       print_r($e->getMessage());
     }
     $writer->close();
-    return $paper_card;
+    return $cells;
   }
 
 }

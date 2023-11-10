@@ -19,7 +19,7 @@ class PaperTest extends TestCase {
       new Person('Evariste Galois', 'Lycée Louis-le-Grand'),
     ]);
 
-    
+    $this->assertEquals(132, $paper->id);
     $this->assertEquals('Paper title', $paper->title);
     $this->assertEquals('Oral presentation', $paper->type);
     $this->assertEquals('Evariste Galois', $paper->authors[0]->name);
